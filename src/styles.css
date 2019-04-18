@@ -21,7 +21,7 @@
 
 .box{
   padding: 32px;
-  background: #5ca0d3;
+  background: #142d4c;
   border-radius: 3px;
   color: white;
   font-family: OpenSans;
@@ -39,12 +39,17 @@
 }
 
 .seeMore{
-  position: fixed;
-  top: 10%;
-  background: #f09c67;
+  position: relative;
+  top: -40px;
+  background: #5ca0d3;
   color: white;
   padding: 4px 8px;
-  border-radius: 5%;
-  margin-top: -40px;
+  border-radius: 30px;
   cursor: pointer;
+  font-size: 13px;
+}
+
+.downArrowIcon{
+  height: 10px;
+  margin-right: 4px;
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
 import { log } from './utils';
+import ArrowDownIcon from './ArrowDownIcon';
 import "./styles.css";
 
 const isElementInViewPort = element => {
@@ -43,14 +44,14 @@ const SmartBox = props => {
         ) {
           const targetElement = child;
           if (isElementInViewPort(child)) {
-            console.log("Found@@");
+            log("In viewport");
             const tags = smartTags;
             tags.splice(0,1);
             setVisibility(false);
             setSmartTags(tags);
           } else {
             setVisibility(true);
-            console.log("Not found yet**");
+            log("Not in viewport");
           }
         }
       });
@@ -81,6 +82,7 @@ const SmartBox = props => {
         showMoreButton && (
           <div className="seeMoreWrapper">
             <div className="seeMore" onClick={() => moveToElementView()}>
+              <ArrowDownIcon className="downArrowIcon"/>
               {smartTags[0].tagLabel}
             </div>
           </div>
@@ -93,9 +95,9 @@ const SmartBox = props => {
 function App() {
   return (
     <SmartBox className="box" tags={[
-      { tagLabel: 'see Awesome1', tagId: 'awesome1'},
-      { tagLabel: 'see Awesome2', tagId: 'awesome2'},
-      { tagLabel: 'see Awesome3', tagId: 'awesome3'},
+      { tagLabel: 'More Files', tagId: 'awesome1'},
+      { tagLabel: 'Careers', tagId: 'awesome2'},
+      { tagLabel: 'Contact', tagId: 'awesome3'},
     ]}>
       <p>
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
