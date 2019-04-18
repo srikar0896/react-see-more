@@ -69,20 +69,24 @@ const SmartBox = props => {
   }, []);
 
   return (
-    <div ref={SmartBoxRef} {...props}>
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-      {props.children}
+    <>
+      <div ref={SmartBoxRef} {...props}>
+        <h1>Hello CodeSandbox</h1>
+        <h2>Start editing to see some magic happen!</h2>
+        <h1>Hello CodeSandbox</h1>
+        <h2>Start editing to see some magic happen!</h2>
+        {props.children}
+      </div>
       {
         showMoreButton && (
-          <div className="seeMore" onClick={() => moveToElementView()}>
-            {smartTags[0].tagLabel}
+          <div className="seeMoreWrapper">
+            <div className="seeMore" onClick={() => moveToElementView()}>
+              {smartTags[0].tagLabel}
+            </div>
           </div>
         )
       }
-    </div>
+    </>
   );
 };
 
