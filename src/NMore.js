@@ -1,17 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ArrowDownIcon from './ArrowDownIcon';
-import { log } from './utils';
-
-const isElementInViewPort = element => {
-  const elementTop = element.getBoundingClientRect().top;
-  const parentTop = element.parentElement.getBoundingClientRect().top;
-  const parentHeight = element.parentElement.getBoundingClientRect().height;
-  if(elementTop > (parentTop + parentHeight)){
-    return false;
-  } else {
-    return true;
-  }
-};
+import { log, isElementInViewPort } from './utils';
 
 const NMore = props => {
   const SmartBoxRef = useRef();

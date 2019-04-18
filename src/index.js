@@ -1,21 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
-import { log } from './utils';
+import { log, isElementInViewPort } from './utils';
 import ArrowDownIcon from './ArrowDownIcon';
 import "./styles.css";
 import NMore from './NMore';
-
-
-const isElementInViewPort = element => {
-  const elementTop = element.getBoundingClientRect().top;
-  const parentTop = element.parentElement.getBoundingClientRect().top;
-  const parentHeight = element.parentElement.getBoundingClientRect().height;
-  if(elementTop > (parentTop + parentHeight)){
-    return false;
-  } else {
-    return true;
-  }
-};
 
 const SmartBox = props => {
   const SmartBoxRef = useRef();
@@ -74,10 +62,10 @@ const SmartBox = props => {
   return (
     <>
       <div ref={SmartBoxRef} {...props}>
-        <h1>Hello CodeSandbox</h1>
-        <h2>Start editing to see some magic happen!</h2>
-        <h1>Hello CodeSandbox</h1>
-        <h2>Start editing to see some magic happen!</h2>
+        <h2>Hello CodeSandbox</h2>
+        <h3>Start editing to see some magic happen!</h3>
+        <h2>Hello CodeSandbox</h2>
+        <h3>Start editing to see some magic happen!</h3>
         {props.children}
       </div>
       {
