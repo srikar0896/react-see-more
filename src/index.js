@@ -22,34 +22,39 @@ const SmartBox = props => {
     log('Set Smart Tags', props.tags);
     setSmartTags(props.tags);
   }, []);
-    const moveToElementView = () => {
-      SmartBoxRef.current.childNodes.forEach(child => {
-        if (
-          child.attributes["data-id"] &&
-          child.attributes["data-id"].nodeValue === smartTags[0].tagId
-        ) {
-          const targetElement = child;
-          targetElement.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
-        }
-      });
-    };
-
-  const handleWheelDown = () => {
+  const moveToElementView = () => {
     SmartBoxRef.current.childNodes.forEach(child => {
       if (
         child.attributes["data-id"] &&
         child.attributes["data-id"].nodeValue === smartTags[0].tagId
       ) {
         const targetElement = child;
-        if (isElementInViewPort(child)) {
-          console.log("Found@@");
-          setVisibility(false);
-        } else {
-          setVisibility(true);
-          console.log("Not found yet**");
-        }
+        targetElement.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
       }
-    });  
+    });
+  };
+
+  const handleWheelDown = () => {
+    if(smartTags.length){
+      SmartBoxRef.current.childNodes.forEach(child => {
+        if (
+          child.attributes["data-id"] &&
+          child.attributes["data-id"].nodeValue === smartTags[0].tagId
+        ) {
+          const targetElement = child;
+          if (isElementInViewPort(child)) {
+            console.log("Found@@");
+            const tags = smartTags;
+            tags.splice(0,1);
+            setVisibility(false);
+            setSmartTags(tags);
+          } else {
+            setVisibility(true);
+            console.log("Not found yet**");
+          }
+        }
+      });
+    }  
   };
 
   useEffect(() => {
@@ -61,7 +66,7 @@ const SmartBox = props => {
         SmartBoxRef.current.removeEventListener("scroll", handleWheelDown);
       }
     };
-  });
+  }, []);
 
   return (
     <div ref={SmartBoxRef} {...props}>
@@ -73,7 +78,7 @@ const SmartBox = props => {
       {
         showMoreButton && (
           <div className="seeMore" onClick={() => moveToElementView()}>
-            See More
+            {smartTags[0].tagLabel}
           </div>
         )
       }
