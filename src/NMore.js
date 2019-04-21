@@ -11,12 +11,6 @@ const NMore = props => {
     calculateNMore();
   }, [props.children.length]);
 
-  const handleWheelDown = () => {
-    if(showMoreButton){
-      setVisibility(false);
-    }
-  };
-  
   const calculateNMore = () => {
     log('Ref', SmartBoxRef);
     if(SmartBoxRef.current){
@@ -45,7 +39,7 @@ const NMore = props => {
     });
     return () => {
       if (SmartBoxRef.current) {
-        SmartBoxRef.current.removeEventListener("scroll", handleWheelDown);
+        SmartBoxRef.current.removeEventListener("scroll");
       }
     };
   }, []);
