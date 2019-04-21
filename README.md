@@ -1,7 +1,9 @@
 # react-see-more
-### Usecase
+
 It's main purpose is to show how many items in the list that are not in the 
 viewport
+
+<img src="https://i.imgur.com/bXOnppc.png" alt="drawing" height=450/>
 
 
 ## WIP
