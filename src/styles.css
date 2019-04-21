@@ -5,7 +5,7 @@
   flex-direction: column;
   background: orange;
   height: 1000px;
-  margin-top: 5c00px;
+  margin-top: 500px;
 }
 
 .fatBox {
@@ -34,13 +34,13 @@
 
 .seeMoreWrapper{
   display:flex;
-    flex: 1;
-    justify-content: center;
+  flex: 1;
+  justify-content: center;
+  position: relative;
+  top: -40px;
 }
 
 .seeMore{
-  position: relative;
-  top: -40px;
   background: #5ca0d3;
   color: white;
   padding: 4px 8px;

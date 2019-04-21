@@ -7,6 +7,10 @@ const NMore = props => {
   const [showMoreButton, setVisibility] = useState(true);
   const [nMore, setNMore] = useState(0);
 
+  useEffect(() => {
+    calculateNMore();
+  }, [props.children.length]);
+
   const handleWheelDown = () => {
     if(showMoreButton){
       setVisibility(false);

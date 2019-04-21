@@ -1,15 +1,18 @@
-const logColor = 'Green';
+const logTitleColor = 'Green';
+const logEnabled = false;
 
 export const isElementInViewPort = element => {
   const elementTop = element.getBoundingClientRect().top;
   const parentTop = element.parentElement.getBoundingClientRect().top;
   const parentHeight = element.parentElement.getBoundingClientRect().height;
-  if(elementTop > (parentTop + parentHeight)){
-    return false;
-  } else {
-    return true;
-  }
+  return elementTop <= (parentTop + parentHeight);
 };
 
-export const log = (title, ...message) => 
-console.log(`%c ${title.toUpperCase().padStart(15)} `, `font-weight:bold;background-color:${logColor};color: white`, ...message);;
+export const log = (title, ...message) => {
+  if(logEnabled){
+    console.log(
+      `%c ${title.toUpperCase().padStart(15)} `,
+      `font-weight:bold;background-color:${logTitleColor};color: white`, ...message
+    );
+  }
+};
