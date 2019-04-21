@@ -17,7 +17,7 @@ bottom or sideways,because the list can be dynamically updated and the new item
 can be added at any position and clicking on it should take it to the item 
 scroll position, finally which should look something like slack's unread 
 mentions sticky thing
-![slack](https://get.slack.help/hc/en-us/article_attachments/203675978/blog2.png)
+<img src="https://i.imgur.com/TZrf8Ci.png" alt="drawing" height=450/>
 
 The list item can be added anywhere in a list, that is the item can be 
 added in between, at the beginning or at the last and we have to track what 
