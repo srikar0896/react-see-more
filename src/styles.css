@@ -21,17 +21,17 @@
 }
 
 .box{
-  padding: 32px;
+  padding: 14px;
   border-radius: 3px;
   color: black;
   font-family: OpenSans;
   font-size: 14px;
   line-height: 2.2;
-  max-height: 280px;
+  max-height: 400px;
   overflow: auto;
   position: relative;
   background: white;
-  width: 400px;
+  width: 320px;
   margin: auto;
 }
 
@@ -92,17 +92,22 @@ h1{
   font-style: italic;
   font-size: 12px;
   margin: 0;
+  margin-top: -10px;
+  opacity: 0.5;
 }
 
 .category__right__taskstatus{
   font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  opacity: 0.8;
 }
 
 h4{
-  color: white;
-  font-weight: 300;
+  color: grey;
   font-size: 14px;
-  margin-left: 50px;
+  margin-left: 98px;
   padding-top: 18px;
   margin-bottom: 10px;
+  font-weight: 600;
 }

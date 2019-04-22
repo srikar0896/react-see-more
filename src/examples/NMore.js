@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-import NMore from '../NMore';
+import NMore from '../lib/NMore';
 import { log } from '../utils';
 
 export default () => {

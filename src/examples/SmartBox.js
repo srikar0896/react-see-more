@@ -1,5 +1,5 @@
 import React from 'react';
-import SmartBox from '../SmartBox';
+import SmartBox from '../lib/SmartBox';
 
 const SmartBoxExample = () => {
   return (
