@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "src/styles.css";
-import NMoreExample from './examples/NMore';
-import SmartBoxExample from './examples/SmartBox';
+import "../styles.css";
+import NMoreExample from '/NMore';
+import SmartBoxExample from './SmartBox';
 
 function App() {
   return (
