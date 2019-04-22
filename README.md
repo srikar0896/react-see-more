@@ -3,8 +3,9 @@
 It's main purpose is to show how many items in the list that are not in the 
 viewport
 
-<img src="https://i.imgur.com/bXOnppc.png" alt="drawing" height=450/>
-
+<p align="center">
+<img src="https://i.imgur.com/EsZh5vr.png" alt="drawing" height=550/>
+</p>
 
 ## WIP
 ##### Dynamic updates
@@ -17,18 +18,17 @@ bottom or sideways,because the list can be dynamically updated and the new item
 can be added at any position and clicking on it should take it to the item 
 scroll position, finally which should look something like slack's unread 
 mentions sticky thing
-![slack](https://get.slack.help/hc/en-us/article_attachments/203675978/blog2.png)
 
+<p align="center">
+<img src="https://i.imgur.com/TZrf8Ci.png" alt="drawing" height=450/>
+</p>
 The list item can be added anywhere in a list, that is the item can be 
 added in between, at the beginning or at the last and we have to track what 
 has been updated and where it has been updated.
 
 ###### How can we do that?
-2) One way is to create a ref for each child element in the list
-and maintain a data structure to track whether the node has been visited/seen
-by the user
-3) Use "key" keyword to compare snapshots between renders like something 
-react does internally to get the diff between
+One approach would be to use "key" keyword to compare snapshots between renders like something 
+react does internally to get the diff between renders and show the floating pill accordingly
 
 ###### Other concerns
 1) The scrollable height can also be dynamic, so have to recalculate what's 
@@ -40,104 +40,35 @@ scrollable container's height alters.
 example, if we don't give an option to ignore some elements, the node "Helper
  text" will also be considered a list items and the text will become "5 More 
  threads" even when there are 4 threads.
-```
-<div>
-  <h2>Conversations</h2>
-  <NMore as="ul">
-    {
-      threads.map(thread => (
-        <Thread data={thread} />
-      ))
-    }
-    <HelperText>
-      + see all threads
-    </HelperText>
-  </NMore>
-</div>
-```
+
+
+![c1](https://i.imgur.com/2LN0aXb.png)
+
 Add "data-nmore-ignore" for ignoring that node and  tell us not to consider that element as a list item
-```
-<div>
-  <h2>Conversations</h2>
-  <NMore as="ul">
-    {
-      threads.map(thread => (
-        <Thread data={thread} />
-      ))
-    }
-    <HelperText data-nmore-ignore>
-      + see all threads
-    </HelperText>
-  </NMore>
-</div>
-```
+
+
+![c2](https://i.imgur.com/A8UH4jo.png)
+
 
 ### Customizability
 1) Give an option to **customize the wrapper component**, by default the wrapper of 
 list items is "div"
 
 > Should accept component
-```
-<NMore parentAs={CategoriesWrapper}>
-  {
-    categories.map(category => (
-      <Category data={category} />
-    ))
-  }
-</NMore>
-```
+
+![c](https://i.imgur.com/eWjE9Nk.png)
+
 > Should accept strings which represent primitive elements
-```
-<NMore parentAs="ul">
-  {
-    categories.map(category => (
-      <Category data={category} />
-    ))
-  }
-</NMore>
-```
+
+![c4](https://i.imgur.com/pEEb0rw.png)
+
 2) **Custom Text**(default "N More") => "N more threads"
-```
-<NMore
-  as="ul"
-  text={(totalCount, outOfViewPortCount) => `${outOfViewPortCount} More threads` 
->
-  {
-    categories.map(category => (
-      <Category data={category} />
-    ))
-  }
-</NMore>
-```
+
+![Imgur](https://i.imgur.com/sFADjxh.png)
+
 3) **Custom pill**
-```
-<NMore
-  as="ul"
-  pill=((totalCount, outOfViewPortCount, iconDirection) => (
-    <Pill
-      totalChildCount={totalCount}
-      outOfViewPortChildCount=(outOfViewPortCount)
-      />
-    ))
->
-  {
-    categories.map(category => (
-      <Category data={category} />
-    ))
-  }
-</NMore>
-``` 
 
-```
-## Pill.js
-
-<StyledPill>
-  <NavigationIcon direction={iconDirection}/>
-
-  //show text like "4/10" instead of "6 more"
-  {(props.totalChildCount - props.outOfViewPortChildCount)/props.totalChildCount}
-</StyledPill>
-```
+![Imgur](https://i.imgur.com/pPVuVZK.png)
 
 #### Good to have feature
 1) Right now the floating pill is visible at all the time, somehow that's the point of the handy little component, which is to show how many list items are not view port. But sometimes, seeing this pill, the user might scroll and visited seen all the child elements and scrolled back to top. Now, as he already seent the list items, Do we need to show "n more" or should we just we hide as he already knew it. ? 
