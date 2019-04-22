@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./styles.css";
+import "src/styles.css";
 import NMoreExample from './examples/NMore';
 import SmartBoxExample from './examples/SmartBox';
 

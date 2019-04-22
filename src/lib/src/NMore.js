@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import ArrowDownIcon from '../ArrowDownIcon';
-import { log, isElementInViewPort } from '../utils';
+import ArrowDownIcon from 'src/ArrowDownIcon';
+import { log, isElementInViewPort } from 'src/utils';
 
 const NMore = props => {
   const SmartBoxRef = useRef();
