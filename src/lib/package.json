@@ -1,0 +1,25 @@
+{
+  "name": "react-see-more",
+  "version": "1.0.1",
+  "description": "React component which shows \"n more\" indicating n more children are in the scrollable list but not in the viewport",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srikar0896/react-see-more.git"
+  },
+  "keywords": [
+    "react",
+    "see-more",
+    "user-experience",
+    "scroll"
+  ],
+  "author": "srikar0896",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/srikar0896/react-see-more/issues"
+  },
+  "homepage": "https://github.com/srikar0896/react-see-more#readme"
+}
